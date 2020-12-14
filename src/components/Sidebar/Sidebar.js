@@ -1,15 +1,13 @@
 import React from "react";
 import * as s from "./Sidebar.styles";
 
-const Sidebar = ({ backgroundImage, sidebarHeader }) => {
-  const menuItems = [
-    "Home",
-    "About",
-    "Locations",
-    "Services",
-    "Blog",
-    "Contacts",
-  ];
+// Provide default value to props
+const Sidebar = ({
+  backgroundImage="",
+  sidebarHeader= "",
+  menuItems =[]}
+  ) => {
+
   const menuItemsJSX = menuItems.map((item, index) => {
     return <s.MenuItem key={index}>{item}</s.MenuItem>;
   });
