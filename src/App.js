@@ -26,6 +26,11 @@ const menuItems = [
   { name: "Contacts", to: "/contacts", icon: "icons/contacts.svg", subMenuItems: [] },
 ];
 
+const fonts = {
+  header: "Playfair Display",
+  menu:"Poppins"
+}
+
 const App = () => {
   const backgroundImage = "images/company.jpeg";
   return (
@@ -34,6 +39,7 @@ const App = () => {
         backgroundImage={backgroundImage}
         SidebarHeader={SidebarHeader}
         menuItems={menuItems}
+        fonts={fonts}
       />
       <MainView />
     </s.App>

@@ -6,10 +6,14 @@ const Sidebar = ({
   backgroundImage = "",
   SidebarHeader = "",
   menuItems = [],
+  fonts={
+    header:"",
+    menu: ""
+  }
 }) => {
   const menuItemsJSX = menuItems.map((item, index) => {
     return (
-      <s.MenuItem key={index}>
+      <s.MenuItem key={index} font={fonts.menu}>
         <s.Icon src={item.icon} />
         <s.Text>{item.name}</s.Text>
       </s.MenuItem>
@@ -17,7 +21,7 @@ const Sidebar = ({
   });
   return (
     <s.SidebarContainer backgroundImage={backgroundImage}>
-      <s.SidebarHeader>{SidebarHeader}</s.SidebarHeader>
+      <s.SidebarHeader font={fonts.header}>{SidebarHeader}</s.SidebarHeader>
       <s.MenuItemContainer>{menuItemsJSX}</s.MenuItemContainer>
     </s.SidebarContainer>
   );

@@ -24,20 +24,19 @@ export const SidebarHeader = styled.h3`
   text-align: center;
   margin-bottom: 10px;
   letter-spacing: 6px;
-  font-family: "Playfair Display", serif;
+  font-family: ${p => p.font}
 `;
 
 // Container holding menu items
 export const MenuItemContainer = styled.div`
 `
 // Each menu item
-export const MenuItem = styled.div `
+export const MenuItem = styled.div`
   padding: 6px 20px;
-  font-weight:600;
-  color:rgba(19,15,64);
-
-
-`
+  font-weight: 600;
+  color: rgba(19, 15, 64);
+  font-family: ${(p) => p.font};
+`;
 
 export const Text = styled.p`
 display:inline;
