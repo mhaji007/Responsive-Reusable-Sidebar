@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 
+// Sidebar
 export const SidebarContainer = styled.div`
   width: 20%;
   max-width: 280px;
@@ -17,7 +18,7 @@ export const SidebarContainer = styled.div`
 
 
 `;
-
+// header/logo
 export const sidebarHeader = styled.h3`
   padding: 20px 0;
   text-align: center;
@@ -26,3 +27,16 @@ export const sidebarHeader = styled.h3`
   font-family: 'Playfair Display', serif;
 
 `;
+
+// Container holding menu items
+export const MenuItemContainer = styled.div`
+`
+// Each menu item
+export const MenuItem = styled.div `
+  text-align: center;
+  padding: 6px 20px;
+  font-weight:600;
+  color:rgba(19,15,64);
+
+
+`
