@@ -19,13 +19,12 @@ export const SidebarContainer = styled.div`
 
 `;
 // header/logo
-export const sidebarHeader = styled.h3`
+export const SidebarHeader = styled.h3`
   padding: 20px 0;
   text-align: center;
   margin-bottom: 10px;
   letter-spacing: 6px;
-  font-family: 'Playfair Display', serif;
-
+  font-family: "Playfair Display", serif;
 `;
 
 // Container holding menu items
@@ -33,10 +32,19 @@ export const MenuItemContainer = styled.div`
 `
 // Each menu item
 export const MenuItem = styled.div `
-  text-align: center;
   padding: 6px 20px;
   font-weight:600;
   color:rgba(19,15,64);
 
 
+`
+
+export const Text = styled.p`
+display:inline;
+`
+
+export const Icon = styled.img`
+height:16px;
+width:16px;
+padding-right: 20px
 `

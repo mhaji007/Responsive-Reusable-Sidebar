@@ -5,15 +5,15 @@ import * as s from "./App.styles";
 import Sidebar from "./components/Sidebar/Sidebar";
 import MainView from "./components/MainView/MainView";
 
-const sidebarHeader = "Reusable Sidebar";
+const SidebarHeader = "Reusable Sidebar";
 
 const menuItems = [
-  { name: "Home", to: "/", icon: "", subMenuItems: [] },
-  { name: "About", to: "/about", icon: "", subMenuItems: [] },
+  { name: "Home", to: "/", icon: "icons/home.svg", subMenuItems: [] },
+  { name: "About", to: "/about", icon: "icons/about.svg", subMenuItems: [] },
   {
     name: "Locations",
     to: "/locations",
-    icon: "",
+    icon: "icons/locations.svg",
     subMenuItems: [
       { name: "California", to: "/california" },
       { name: "Washington", to: "/washington" },
@@ -21,9 +21,9 @@ const menuItems = [
       { name: "Texas", to: "/texas" },
     ],
   },
-  { name: "Services", to: "/services", icon: "", subMenuItems: [] },
-  { name: "Blog", to: "/blog", icon: "", subMenuItems: [] },
-  { name: "Contacts", to: "/contacts", icon: "", subMenuItems: [] },
+  { name: "Services", to: "/services", icon: "icons/services.svg", subMenuItems: [] },
+  { name: "Blog", to: "/blog", icon: "icons/blog.svg", subMenuItems: [] },
+  { name: "Contacts", to: "/contacts", icon: "icons/contacts.svg", subMenuItems: [] },
 ];
 
 const App = () => {
@@ -32,7 +32,7 @@ const App = () => {
     <s.App>
       <Sidebar
         backgroundImage={backgroundImage}
-        sidebarHeader={sidebarHeader}
+        SidebarHeader={SidebarHeader}
         menuItems={menuItems}
       />
       <MainView />
