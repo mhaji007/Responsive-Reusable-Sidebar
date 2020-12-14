@@ -9,7 +9,7 @@ const Sidebar = ({
   ) => {
 
   const menuItemsJSX = menuItems.map((item, index) => {
-    return <s.MenuItem key={index}>{item}</s.MenuItem>;
+    return <s.MenuItem key={index}>{item.name}</s.MenuItem>;
   });
   return (
     <s.SidebarContainer backgroundImage={backgroundImage}>
