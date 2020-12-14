@@ -1,9 +1,13 @@
+import React from "react";
+import * as s from "./App.styles"
 
 function App() {
   return (
-    <div className="App">
+    <s.App>
+      <s.Header>
         Responsive Sidebar
-    </div>
+      </s.Header>
+    </s.App>
   );
 }
 
