@@ -1,12 +1,15 @@
 import React from "react";
-import * as s from "./App.styles"
+import * as s from "./App.styles";
+
+// Import components
+import Sidebar from "./components/Sidebar/Sidebar";
+import MainView from "./components/MainView/MainView";
 
 function App() {
   return (
     <s.App>
-      <s.Header>
-        Responsive Sidebar
-      </s.Header>
+      <Sidebar/>
+      <MainView/>
     </s.App>
   );
 }
