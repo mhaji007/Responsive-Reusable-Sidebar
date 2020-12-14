@@ -24,7 +24,8 @@ export const SidebarHeader = styled.h3`
   text-align: center;
   margin-bottom: 10px;
   letter-spacing: 6px;
-  font-family: ${p => p.font}
+  font-family:${(p) => p.font};
+
 `;
 
 // Container holding menu items
@@ -36,6 +37,12 @@ export const MenuItem = styled.div`
   font-weight: 600;
   color: rgba(19, 15, 64);
   font-family: ${(p) => p.font};
+  &::after {
+    content: "";
+    border: .8px solid rgb(214, 100, 178);
+    display: block;
+    margin: 8px 0 4px;
+  }
 `;
 
 export const Text = styled.p`
