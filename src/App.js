@@ -4,11 +4,16 @@ import * as s from "./App.styles";
 // Import components
 import Sidebar from "./components/Sidebar/Sidebar";
 import MainView from "./components/MainView/MainView";
+  const sidebarHeader = "Reusable Sidebar";
 
-function App() {
+const App = () => {
+  const backgroundImage = "images/company.jpeg"
   return (
     <s.App>
-      <Sidebar/>
+      <Sidebar
+        backgroundImage={backgroundImage}
+        sidebarHeader={sidebarHeader}
+      />
       <MainView/>
     </s.App>
   );
