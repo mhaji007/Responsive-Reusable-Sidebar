@@ -35,11 +35,14 @@ export const MenuItemContainer = styled.div`
 export const MenuItem = styled.div`
   padding: 6px 20px;
   font-weight: 600;
-  color: rgba(19, 15, 64);
+  /* When using ternary operator in logic of styles "" is needed */
+  color: ${(p) => (p.selected ? "rgba(255, 255, 255)" : "rgba(19, 15, 64)")};
   font-family: ${(p) => p.font};
   &::after {
     content: "";
-    border: .8px solid rgb(214, 100, 178);
+    border: 0.8px solid
+      ${(p) => (p.selected ? "rgba(255, 255, 255)" :   "rgba(214, 100, 178)")}
+    ;
     display: block;
     margin: 8px 0 4px;
   }
