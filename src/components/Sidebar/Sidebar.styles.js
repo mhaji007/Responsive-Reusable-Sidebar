@@ -16,6 +16,7 @@ export const SidebarContainer = styled.div`
   background-position: center center;
   color: #fff;
   position: relative;
+  transition:.2s ease-in all;
 `;
 // header/logo
 export const SidebarHeader = styled.h3`

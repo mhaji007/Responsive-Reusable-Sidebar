@@ -5,7 +5,10 @@ import * as s from "./App.styles";
 import Sidebar from "./components/Sidebar/Sidebar";
 import MainView from "./components/MainView/MainView";
 
-const SidebarHeader = "Reusable Sidebar";
+const sidebarHeader =  {
+  fullName: "Reusable Sidebar",
+  shortName: "RS"
+}
 
 const menuItems = [
   { name: "Home", to: "/", icon: "icons/home.svg", subMenuItems: [] },
@@ -37,7 +40,7 @@ const App = () => {
     <s.App>
       <Sidebar
         backgroundImage={backgroundImage}
-        SidebarHeader={SidebarHeader}
+        sidebarHeader={sidebarHeader}
         menuItems={menuItems}
         fonts={fonts}
       />
