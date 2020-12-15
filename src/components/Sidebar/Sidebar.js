@@ -12,6 +12,10 @@ const Sidebar = ({
   },
 }) => {
   const [selected, setSelectedMenuItem] = useState(menuItems[0].name);
+  const handleMenuItemClick = name => {
+    setSelectedMenuItem(name)
+  }
+
   const menuItemsJSX = menuItems.map((item, index) => {
 
     const isItemSelcted = selected === item.name;
@@ -24,7 +28,9 @@ const Sidebar = ({
       font={fonts.menu}
       // Pass selected item to change
       // the color of the divider
-      selected={isItemSelcted}>
+      selected={isItemSelcted}
+      onClick = {()=> handleMenuItemClick(item.name)}
+      >
         <s.Icon src={item.icon} />
         <s.Text>{item.name}</s.Text>
       </s.MenuItem>
