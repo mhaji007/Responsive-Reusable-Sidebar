@@ -18,9 +18,9 @@ const Sidebar = ({
 
   const menuItemsJSX = menuItems.map((item, index) => {
 
-    const isItemSelcted = selected === item.name;
+    const isItemSelected = selected === item.name;
 
-    console.log(`${item.name} selected? ${isItemSelcted}`)
+    console.log(`${item.name} selected? ${isItemSelected}`)
 
     return (
       <s.MenuItem
@@ -28,7 +28,7 @@ const Sidebar = ({
       font={fonts.menu}
       // Pass selected item to change
       // the color of the divider
-      selected={isItemSelcted}
+      selected={isItemSelected}
       onClick = {()=> handleMenuItemClick(item.name)}
       >
         <s.Icon src={item.icon} />
@@ -41,6 +41,9 @@ const Sidebar = ({
     <s.SidebarContainer backgroundImage={backgroundImage}>
       <s.SidebarHeader font={fonts.header}>{SidebarHeader}</s.SidebarHeader>
       <s.MenuItemContainer>{menuItemsJSX}</s.MenuItemContainer>
+      <s.TogglerContainer>
+          <s.Toggler/>
+      </s.TogglerContainer>
     </s.SidebarContainer>
   );
 };
