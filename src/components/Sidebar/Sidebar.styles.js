@@ -38,15 +38,29 @@ export const MenuItem = styled.div`
   /* When using ternary operator in logic of styles "" is needed */
   color: ${(p) => (p.selected ? "rgba(255, 255, 255)" : "rgba(19, 15, 64)")};
   font-family: ${(p) => p.font};
+  &:hover {
+    color: rgba(255, 255, 255);
+    transition: 0.1s ease-in all;
+  }
   &::after {
     content: "";
     border: 0.8px solid
-      ${(p) => (p.selected ? "rgba(255, 255, 255)" :   "rgba(214, 100, 178)")}
-    ;
+      ${(p) => (p.selected ? "rgba(255, 255, 255)" : "rgba(214, 100, 178)")};
     display: block;
     margin: 8px 0 4px;
   }
+
+  ${(p)=>!p.selected && `
+    &:hover {
+      &::after {
+        border: 0.8px solid rgba(255, 255, 255, 0.2);
+        transition: .1s ease-in all;
+      }
+    }
+  `}
 `;
+
+
 
 export const Text = styled.p`
 display:inline;
