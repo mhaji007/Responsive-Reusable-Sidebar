@@ -35,7 +35,8 @@ export const MenuItemContainer = styled.div`
 export const MenuItem = styled.div`
 ${p=>!p.isSidebarOpen && `
   text-align: center;
-`}
+  ${p.selected && "background-color: rgba(0,0,0,0.3);"}
+`};
   padding: 6px 20px;
   font-weight: 600;
   /* When using ternary operator in logic of styles "" is needed */
