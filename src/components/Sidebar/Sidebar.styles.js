@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 // Sidebar
 export const SidebarContainer = styled.div`
-  width: 20%;
+  width: ${(p) => (p.isSidebarOpen ? "20%" : "5%")};
   max-width: 280px;
   min-width: 80px;
   background-image: linear-gradient(
@@ -10,14 +10,12 @@ export const SidebarContainer = styled.div`
       rgb(189, 216, 254, 0.8) 0%,
       rgb(225, 134, 180, 0.8) 74%
     ),
-    url(${p =>p.backgroundImage});
+    url(${(p) => p.backgroundImage});
   background-size: cover;
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   background-position: center center;
-  color:#fff;
+  color: #fff;
   position: relative;
-
-
 `;
 // header/logo
 export const SidebarHeader = styled.h3`
