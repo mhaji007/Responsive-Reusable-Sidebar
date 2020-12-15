@@ -42,6 +42,11 @@ ${p=>!p.isSidebarOpen && `
   /* When using ternary operator in logic of styles "" is needed */
   color: ${(p) => (p.selected ? "rgba(255, 255, 255)" : "rgba(19, 15, 64)")};
   font-family: ${(p) => p.font};
+  /* To deal with janky transition text motion from collpase mode to extended mode
+   we need to make sure no matter how long the text is, it will always stay on
+   the same line as the icon */
+   white-space:nowrap;
+
   &:hover {
     color: rgba(255, 255, 255);
     transition: 0.1s ease-in all;
@@ -73,6 +78,7 @@ display: ${p=>p.isSidebarOpen ? "inline" : "none"};
 export const Icon = styled.img`
 ${p => p.isSidebarOpen && `
   padding-right:20px;
+  transition: .2s ease-in padding-right;
   `}
 height:16px;
 width:16px;
