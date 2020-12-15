@@ -21,7 +21,8 @@ const Sidebar = ({
   // Effects
   useEffect(() => {
     isSidebarOpen
-    // to avoid the uneven motion when expanding
+    // to avoid the janky transition motion when expanding
+    // use only when switching from shortName to longName
       ? setTimeout(() => setHeader(sidebarHeader.fullName), 200)
       : setHeader(sidebarHeader.shortName);
   }, [isSidebarOpen, sidebarHeader]);
@@ -42,10 +43,11 @@ const Sidebar = ({
         // Pass selected item to change
         // the color of the divider
         selected={isItemSelected}
+        isSidebarOpen={isSidebarOpen}
         onClick={() => handleMenuItemClick(item.name)}
       >
-        <s.Icon src={item.icon} />
-        <s.Text>{item.name}</s.Text>
+        <s.Icon src={item.icon} isSidebarOpen={isSidebarOpen} />
+        <s.Text isSidebarOpen={isSidebarOpen}>{item.name}</s.Text>
       </s.MenuItem>
     );
   });
@@ -56,7 +58,7 @@ const Sidebar = ({
       isSidebarOpen={isSidebarOpen}
     >
       <s.SidebarHeader font={fonts.header}>{header}</s.SidebarHeader>
-      <s.MenuItemContainer>{menuItemsJSX}</s.MenuItemContainer>
+      <s.MenuItemContainer >{menuItemsJSX}</s.MenuItemContainer>
       <s.TogglerContainer onClick={() => setSidebarState(!isSidebarOpen)}>
         <s.Toggler />
       </s.TogglerContainer>

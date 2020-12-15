@@ -33,6 +33,9 @@ export const MenuItemContainer = styled.div`
 `
 // Each menu item
 export const MenuItem = styled.div`
+${p=>!p.isSidebarOpen && `
+  text-align: center;
+`}
   padding: 6px 20px;
   font-weight: 600;
   /* When using ternary operator in logic of styles "" is needed */
@@ -63,13 +66,15 @@ export const MenuItem = styled.div`
 
 
 export const Text = styled.p`
-display:inline;
+display: ${p=>p.isSidebarOpen ? "inline" : "none"};
 `
 
 export const Icon = styled.img`
+${p => p.isSidebarOpen && `
+  padding-right:20px;
+  `}
 height:16px;
 width:16px;
-padding-right: 20px;
 `
 
 
