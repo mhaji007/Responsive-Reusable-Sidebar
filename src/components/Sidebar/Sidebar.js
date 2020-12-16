@@ -58,25 +58,41 @@ const Sidebar = ({
     // anything but 0 ===> truthy value ==> submenu becomes true
     const hasSubmenus = !!item.subMenuItems.length;
 
-    console.log(`${item.name} selected? ${isItemSelected}`);
+    // console.log(`${item.name} selected? ${isItemSelected}`);
+
+    // JSX for submenus
+    const subMenuJSX= item.subMenuItems.map((subMenuItem, subMenuItemIndex) => {
+      return (
+        <s.SubMenuItem key={subMenuItemIndex}>
+          {subMenuItem.name}
+        </s.SubMenuItem>
+      )
+    })
 
     return (
-      <s.MenuItem
-        key={index}
-        font={fonts.menu}
-        // Pass selected item to change
-        // the color of the divider
-        selected={isItemSelected}
-        isSidebarOpen={isSidebarOpen}
-        onClick={() => handleMenuItemClick(item.name)}
-      >
-        <s.Icon src={item.icon} isSidebarOpen={isSidebarOpen}  selected={isItemSelected} />
-        <s.Text isSidebarOpen={isSidebarOpen}>{item.name}</s.Text>
-        {/* Display drop down arrow */}
-        {hasSubmenus && (
-          <s.DropdownIcon  selected={isItemSelected}/>
-        )}
-      </s.MenuItem>
+      <s.ItemContainer key={index}>
+        <s.MenuItem
+          font={fonts.menu}
+          // Pass selected item to change
+          // the color of the divider
+          selected={isItemSelected}
+          isSidebarOpen={isSidebarOpen}
+          onClick={() => handleMenuItemClick(item.name)}
+        >
+          <s.Icon
+            src={item.icon}
+            isSidebarOpen={isSidebarOpen}
+            selected={isItemSelected}
+          />
+          <s.Text isSidebarOpen={isSidebarOpen}>{item.name}</s.Text>
+          {/* Display drop down arrow */}
+          {hasSubmenus && <s.DropdownIcon selected={isItemSelected} />}
+        </s.MenuItem>
+        {/* Display submenus if they exist */}
+        <s.SubMenuItemContainer>
+          {subMenuJSX}
+        </s.SubMenuItemContainer>
+      </s.ItemContainer>
     );
   });
   console.log(`Is sidebar open ${isSidebarOpen}`);

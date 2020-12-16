@@ -31,6 +31,9 @@ export const SidebarHeader = styled.h3`
 // Container holding menu items
 export const MenuItemContainer = styled.div`
 `
+// Container wrapping both menu items container and submenu items container
+export const ItemContainer = styled.div`
+`
 // Each menu item
 export const MenuItem = styled.div`
 ${p=>!p.isSidebarOpen && `
@@ -84,6 +87,11 @@ ${p => p.isSidebarOpen && `
   `}
 height:16px;
 width:16px;
+`
+/* Submenu Items  ------------------------------------- */
+export const SubMenuItemContainer = styled.div`
+`
+export const SubMenuItem = styled.p`
 `
 
 
