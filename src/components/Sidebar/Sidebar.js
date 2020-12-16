@@ -102,6 +102,13 @@ const Sidebar = ({
     // 0 ==> falsy value ==> hasSubments becomes false
     // anything but 0 ===> truthy value ==> submenu becomes true
     const hasSubmenus = !!item.subMenuItems.length;
+    // Check for availability of submenu state at the given index
+    // If this check is not in place, we encounter an error
+    // since useEffect runs after the initial render and at that
+    // time app does not have access to subMenusStates[index]
+    // The following is the same as :
+    // const isOpen = subMenusStates[index]?.isOpen;
+    const isOpen = subMenusStates[index] ? subMenusStates[index].isOpen : null;
 
     // console.log(`${item.name} selected? ${isItemSelected}`);
 
@@ -134,7 +141,7 @@ const Sidebar = ({
           <s.Text isSidebarOpen={isSidebarOpen}>{item.name}</s.Text>
           {/* Display drop down arrow */}
           {hasSubmenus && isSidebarOpen && (
-            <s.DropdownIcon selected={isItemSelected} />
+            <s.DropdownIcon selected={isItemSelected} isOpen={isOpen} />
           )}
         </s.MenuItem>
         {/* Display submenus if they exist */}

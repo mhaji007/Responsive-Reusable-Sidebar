@@ -124,7 +124,7 @@ export const DropdownIcon = styled.span`
   border-width: 0 1px 1px 0;
   /* How big the square is */
   padding: 3px;
-  transform: rotate(45deg);
+  transform: ${p=>p.isOpen ? 'rotate(-135deg)' : 'rotate(45deg)'}
 `;
 
 
