@@ -36,7 +36,9 @@ export const ItemContainer = styled.div`
 `
 // Each menu item
 export const MenuItem = styled.div`
-${p=>!p.isSidebarOpen && `
+  ${(p) =>
+    !p.isSidebarOpen &&
+    `
   text-align: center;
   ${p.selected && "background-color: rgba(0,0,0,0.3);"}
 `};
@@ -48,9 +50,11 @@ ${p=>!p.isSidebarOpen && `
   /* To deal with janky transition text motion from collpase mode to extended mode
    we need to make sure no matter how long the text is, it will always stay on
    the same line as the icon */
-   white-space:nowrap;
-   /* Dropdown menu */
-   position: relative;
+  white-space: nowrap;
+  /* Dropdown menu */
+  position: relative;
+
+  transition: 0.2s ease-in all;
 
   &:hover {
     color: rgba(255, 255, 255);
@@ -62,9 +66,12 @@ ${p=>!p.isSidebarOpen && `
       ${(p) => (p.selected ? "rgba(255, 255, 255)" : "rgba(214, 100, 178)")};
     display: block;
     margin: 8px 0 4px;
+    transition: 0.2s ease-in all;
   }
 
-  ${(p)=>!p.selected && `
+  ${(p) =>
+    !p.selected &&
+    `
     &:hover {
       &::after {
         border: 0.8px solid rgba(255, 255, 255, 0.2);
