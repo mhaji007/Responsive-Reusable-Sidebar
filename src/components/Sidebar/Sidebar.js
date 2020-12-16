@@ -41,9 +41,6 @@ const Sidebar = ({
       : setHeader(sidebarHeader.shortName);
   }, [isSidebarOpen, sidebarHeader]);
 
-  const handleMenuItemClick = (name) => {
-    setSelectedMenuItem(name);
-  };
 
   // Update of sidebar state
   useEffect(() => {
@@ -62,7 +59,7 @@ const Sidebar = ({
     const newSubmenus = {};
 
     menuItems.forEach((item, index) => {
-      // below is same as item.subMenusItems.length !==0
+      // below  line is same as item.subMenusItems.length !==0
       // !! takes a value and converts it to a boolean
       const hasSubmenus = !!item.subMenuItems.length;
       if (hasSubmenus) {
@@ -74,6 +71,25 @@ const Sidebar = ({
 
 
   }, [menuItems, subMenusStates]);
+
+
+  const handleMenuItemClick = (name, index) => {
+    setSelectedMenuItem(name);
+
+    // Create deep copy
+    const subMenusCopy = JSON.parse(JSON.stringify(subMenusStates));
+
+    if (subMenusStates.hasOwnProperty(index)) {
+      subMenusCopy[index]["isOpen"] = !subMenusStates[index]["isOpen"];
+      setSubmenus(subMenusCopy);
+    } else {
+      for (let item in subMenusStates) {
+        subMenusCopy[item]["isOpen"] = false;
+        subMenusCopy[item]["selected"] = null;
+      }
+      setSubmenus(subMenusCopy);
+    }
+  };
 
 
 
@@ -108,7 +124,7 @@ const Sidebar = ({
           // the color of the divider
           selected={isItemSelected}
           isSidebarOpen={isSidebarOpen}
-          onClick={() => handleMenuItemClick(item.name)}
+          onClick={() => handleMenuItemClick(item.name, index)}
         >
           <s.Icon
             src={item.icon}
