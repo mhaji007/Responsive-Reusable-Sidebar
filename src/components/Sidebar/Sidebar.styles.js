@@ -46,6 +46,8 @@ ${p=>!p.isSidebarOpen && `
    we need to make sure no matter how long the text is, it will always stay on
    the same line as the icon */
    white-space:nowrap;
+   /* Dropdown menu */
+   position: relative;
 
   &:hover {
     color: rgba(255, 255, 255);
@@ -83,6 +85,23 @@ ${p => p.isSidebarOpen && `
 height:16px;
 width:16px;
 `
+
+
+/* Dropdown Icon  ------------------------------------- */
+// Dropdown icon consists of a box that is
+// rotated 45 degrees and only right and
+// bottom sides (borders) are visible
+export const DropdownIcon = styled.span`
+  position: absolute;
+  top: 12px;
+  right: 24px;
+  border: solid ${(p) =>
+    p.selected ? "rgba(255, 255, 255)" : "rgba(19, 15, 64)"};
+  border-width: 0 1px 1px 0;
+  /* How big the square is */
+  padding: 3px;
+  transform: rotate(45deg);
+`;
 
 
 /* Toggler  ------------------------------------- */
