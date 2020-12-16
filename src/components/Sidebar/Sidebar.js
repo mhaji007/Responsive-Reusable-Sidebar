@@ -17,6 +17,19 @@ const Sidebar = ({
   const [selected, setSelectedMenuItem] = useState(menuItems[0].name);
   const [isSidebarOpen, setSidebarState] = useState(true);
   const [header, setHeader] = useState(sidebarHeader.fullName);
+  const [subMenusStates, setSubmenus] = useState({});
+
+  // // How state of submenu items would look like
+  // // 2 is the index of menu items that contains
+  // // submenu items
+  // const submenus = {
+  //   2: {
+  //     // Whether the parent is open or not
+  //     isOpen: false,
+  //     // which submenu item is selected
+  //     isSelected: null
+  //   }
+  // }
 
   // Effects
   // Update of header state
@@ -44,11 +57,27 @@ const Sidebar = ({
     return () => window.removeEventListener("resize", updateWindowWidth);
   }, [isSidebarOpen]);
 
+  // Add index of items that contain sub menu items
+  useEffect(() => {
+    const newSubmenus = {};
+
+    menuItems.forEach((item, index) => {
+      // below is same as item.subMenusItems.length !==0
+      // !! takes a value and converts it to a boolean
+      const hasSubmenus = !!item.subMenuItems.length;
+      if (hasSubmenus) {
+        newSubmenus[index] = {};
+        newSubmenus[index]["isOpen"] = false;
+        newSubmenus[index]["selected"] = null;
+      }
+    });
+
+
+  }, [menuItems, subMenusStates]);
 
 
 
   const menuItemsJSX = menuItems.map((item, index) => {
-
     const isItemSelected = selected === item.name;
 
     // Submenu availability indicator
@@ -61,13 +90,15 @@ const Sidebar = ({
     // console.log(`${item.name} selected? ${isItemSelected}`);
 
     // JSX for submenus
-    const subMenuJSX= item.subMenuItems.map((subMenuItem, subMenuItemIndex) => {
-      return (
-        <s.SubMenuItem key={subMenuItemIndex}>
-          {subMenuItem.name}
-        </s.SubMenuItem>
-      )
-    })
+    const subMenuJSX = item.subMenuItems.map(
+      (subMenuItem, subMenuItemIndex) => {
+        return (
+          <s.SubMenuItem key={subMenuItemIndex}>
+            {subMenuItem.name}
+          </s.SubMenuItem>
+        );
+      }
+    );
 
     return (
       <s.ItemContainer key={index}>
@@ -86,7 +117,9 @@ const Sidebar = ({
           />
           <s.Text isSidebarOpen={isSidebarOpen}>{item.name}</s.Text>
           {/* Display drop down arrow */}
-          {hasSubmenus && isSidebarOpen && <s.DropdownIcon selected={isItemSelected} />}
+          {hasSubmenus && isSidebarOpen && (
+            <s.DropdownIcon selected={isItemSelected} />
+          )}
         </s.MenuItem>
         {/* Display submenus if they exist */}
         <s.SubMenuItemContainer isSidebarOpen={isSidebarOpen}>
