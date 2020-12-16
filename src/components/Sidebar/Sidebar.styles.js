@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 // Sidebar
 export const SidebarContainer = styled.div`
-  width: ${(p) => (p.isSidebarOpen ? "20%" : "5%")};
+  width: ${(p) => (p.isSidebarOpen ? "20%" : "6%")};
   max-width: 280px;
   min-width: 80px;
   background-image: linear-gradient(
@@ -90,9 +90,18 @@ width:16px;
 `
 /* Submenu Items  ------------------------------------- */
 export const SubMenuItemContainer = styled.div`
+font-size: 14px;
+${p => p.isSidebarOpen && "padding-left: 20%"};
+${p => !p.isSidebarOpen && "text-align: center"};
+
 `
 export const SubMenuItem = styled.p`
-`
+  color: rgba(19, 15, 64);
+  &: hover {
+    color: rgba(255,255,255);
+
+  }
+`;
 
 
 /* Dropdown Icon  ------------------------------------- */

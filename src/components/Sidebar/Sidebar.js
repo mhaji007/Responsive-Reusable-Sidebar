@@ -86,10 +86,10 @@ const Sidebar = ({
           />
           <s.Text isSidebarOpen={isSidebarOpen}>{item.name}</s.Text>
           {/* Display drop down arrow */}
-          {hasSubmenus && <s.DropdownIcon selected={isItemSelected} />}
+          {hasSubmenus && isSidebarOpen && <s.DropdownIcon selected={isItemSelected} />}
         </s.MenuItem>
         {/* Display submenus if they exist */}
-        <s.SubMenuItemContainer>
+        <s.SubMenuItemContainer isSidebarOpen={isSidebarOpen}>
           {subMenuJSX}
         </s.SubMenuItemContainer>
       </s.ItemContainer>
