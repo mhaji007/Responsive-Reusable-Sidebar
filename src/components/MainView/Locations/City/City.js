@@ -1,12 +1,12 @@
 import React from 'react'
 
-function Blog() {
+function City() {
   return (
     <div>
-      Daily blogs
+      City
     </div>
   )
 }
 
-export default Blog
+export default City
 
