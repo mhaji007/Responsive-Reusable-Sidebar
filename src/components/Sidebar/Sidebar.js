@@ -41,7 +41,6 @@ const Sidebar = ({
       : setHeader(sidebarHeader.shortName);
   }, [isSidebarOpen, sidebarHeader]);
 
-
   // Update of sidebar state
   useEffect(() => {
     const updateWindowWidth = () => {
@@ -68,18 +67,22 @@ const Sidebar = ({
         newSubmenus[index]["selected"] = null;
       }
     });
+    setSubmenus(newSubmenus);
+  }, [menuItems]);
 
-
-  }, [menuItems, subMenusStates]);
-
+  console.log(subMenusStates);
 
   const handleMenuItemClick = (name, index) => {
     setSelectedMenuItem(name);
 
+    // Check whether what is being clicked
+    // has submenus or not
     // Create deep copy
     const subMenusCopy = JSON.parse(JSON.stringify(subMenusStates));
 
     if (subMenusStates.hasOwnProperty(index)) {
+      // set isOpen accordingly, now this variable can be used
+      // to set the state of dropdown icon from open to close and vice versa
       subMenusCopy[index]["isOpen"] = !subMenusStates[index]["isOpen"];
       setSubmenus(subMenusCopy);
     } else {
@@ -90,8 +93,6 @@ const Sidebar = ({
       setSubmenus(subMenusCopy);
     }
   };
-
-
 
   const menuItemsJSX = menuItems.map((item, index) => {
     const isItemSelected = selected === item.name;
@@ -145,9 +146,11 @@ const Sidebar = ({
           )}
         </s.MenuItem>
         {/* Display submenus if they exist */}
-        <s.SubMenuItemContainer isSidebarOpen={isSidebarOpen}>
-          {subMenuJSX}
-        </s.SubMenuItemContainer>
+        {hasSubmenus && isOpen && (
+          <s.SubMenuItemContainer isSidebarOpen={isSidebarOpen}>
+            {subMenuJSX}
+          </s.SubMenuItemContainer>
+        )}
       </s.ItemContainer>
     );
   });
