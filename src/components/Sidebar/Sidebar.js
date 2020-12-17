@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import * as s from "./Sidebar.styles";
 
 // Provide default value to props
@@ -146,11 +147,20 @@ const Sidebar = ({
           )}
         </s.MenuItem>
         {/* Display submenus if they exist */}
-        {hasSubmenus && isOpen && (
-          <s.SubMenuItemContainer isSidebarOpen={isSidebarOpen}>
-            {subMenuJSX}
-          </s.SubMenuItemContainer>
-        )}
+        <AnimatePresence>
+          {hasSubmenus && isOpen && (
+            <motion.nav
+              initial={{ opacity: 0, y: -15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.35 }}
+              exit={{ opacity: 0, x: -30 }}
+            >
+              <s.SubMenuItemContainer isSidebarOpen={isSidebarOpen}>
+                {subMenuJSX}
+              </s.SubMenuItemContainer>
+            </motion.nav>
+          )}
+        </AnimatePresence>
       </s.ItemContainer>
     );
   });
