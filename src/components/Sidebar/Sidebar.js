@@ -132,6 +132,7 @@ const Sidebar = ({
           // Pass selected item to change
           // the color of the divider
           selected={isItemSelected}
+          isOpen={isOpen}
           isSidebarOpen={isSidebarOpen}
           onClick={() => handleMenuItemClick(item.name, index)}
         >

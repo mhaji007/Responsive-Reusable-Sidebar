@@ -59,7 +59,7 @@ export const MenuItem = styled.div`
     content: "";
     border: 0.8px solid
       ${(p) => (p.selected ? "rgba(255, 255, 255)" : "rgba(214, 100, 178)")};
-    display: block;
+    display: ${p => p.isSidebarOpen && p.selected && p.isOpen ? "none": "block"};
     margin: 8px 0 4px;
     transition: 0.2s ease-in all;
   }
@@ -97,7 +97,7 @@ export const SubMenuItemContainer = styled.div`
 `;
 export const SubMenuItem = styled.p`
   color: rgba(19, 15, 64);
-  &: hover {
+  &:hover {
     color: rgba(255, 255, 255);
   }
 `;
