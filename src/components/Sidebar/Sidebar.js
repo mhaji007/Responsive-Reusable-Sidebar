@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import * as s from "./Sidebar.styles";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 // Provide default value to props
 const Sidebar = ({
@@ -119,16 +119,20 @@ const Sidebar = ({
     const subMenuJSX = item.subMenuItems.map(
       (subMenuItem, subMenuItemIndex) => {
         return (
-          <s.SubMenuItem key={subMenuItemIndex}>
-            {subMenuItem.name}
-          </s.SubMenuItem>
+          <Link
+            key={subMenuItemIndex}
+            to={`${item.to}${subMenuItem.to}`}
+            style={{ textDecoration: "none" }}
+          >
+            <s.SubMenuItem>{subMenuItem.name}</s.SubMenuItem>
+          </Link>
         );
       }
     );
 
     return (
       <s.ItemContainer key={index}>
-        <Link to={item.to} style={{textDecoration: "none"}}>
+        <Link to={item.to} style={{ textDecoration: "none" }}>
           <s.MenuItem
             font={fonts.menu}
             // Pass selected item to change

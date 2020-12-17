@@ -2,9 +2,9 @@ import React from 'react'
 
 function Home() {
   return (
-    <div>
+    <h1>
       Welcome to Reusable Responsive Sidebar!
-    </div>
+    </h1>
   )
 }
 
