@@ -1,10 +1,10 @@
 
 <table>
   <tr>
-    <td><img src="readmeImages/ReactHooks.PNG" width=270 height=480></td>
-    <td><img src="readmeImages/ReactJS.PNG" width=270 height=480></td>
-    <td><img src="readmeImages/JSES6.JPG" width=270 height=480></td>
-    <td><img src="readmeImages/Emotion.PNG" width=270 height=480></td>
+    <td><img src="readmeImages/ReactHooks.png" width=270 height=480></td>
+    <td><img src="readmeImages/ReactJS.png" width=270 height=480></td>
+    <td><img src="readmeImages/JSES6.jpg" width=270 height=480></td>
+    <td><img src="readmeImages/Emotion.png" width=270 height=480></td>
   </tr>
  </table>
 
