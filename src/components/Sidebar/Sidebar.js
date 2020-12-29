@@ -15,6 +15,14 @@ const Sidebar = ({
     header: "",
     menu: "",
   },
+     colorPalette = {
+      bgColor1: 'rgba(11, 171, 100, 0.8)',
+      bgColor2: 'rgba(59, 183, 143, 0.8)',
+      fontColor: 'rgba(22, 46, 39)',
+      fontColorSelected: 'rgba(255, 255, 255)',
+      dividerColor: 'rgba(122, 204, 178)',
+      selectedBackgroundCollapsedMode: 'dark'
+    }
 }) => {
   const [selected, setSelectedMenuItem] = useState(menuItems[0].name);
   const [isSidebarOpen, setSidebarState] = useState(true);
