@@ -6,4 +6,6 @@
 ## Demo
 ![reusable-sidebar](https://user-images.githubusercontent.com/22078200/103313475-27943300-49ee-11eb-90c2-47c651eaa428.gif)
 
+## Credits
+After a design by Eugene Costov
 
